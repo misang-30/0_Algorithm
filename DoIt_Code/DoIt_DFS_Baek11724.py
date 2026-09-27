@@ -1,30 +1,36 @@
 # 백준 11724번
-import sys
+import sys # 현재 실행 중인 파이썬 시스템/환경에 접근하는 모듈
 
-sys.setrecursionlimit(10**4)
 input = sys.stdin.readline
 n, m = map(int, input().split())
-A = [[] for _ in range(n + 1)]
-visited = [False] * (n + 1)
+# 1. 연결 리스트 (맵) 생성
+A= [[] for _ in range( n)] # 노드 개수 만큼 연결 리스트 생성
 
-def DFS(v):
-    visited[v] = True
-    for i in A[v]:
-        if not visited[i]:
-            DFS(i)
+# 2. 방문 리스트 생성
+visited = [False] * n
 
-# 인접리스트 생성
+
+
+# 3. dfs 함수 정의
+def dfs(v): # 방문할 방문 리스트의 인덱스 v를 매개변수로 받음
+    visited[v] = True # 방문 처리
+    for i in A[v]: # 연결 리스트 A에서 v에 연결된 노드들을 탐색
+        if not visited[i]: # 방문하지 않은 노드라면
+            dfs(i) # 재귀적으로 dfs 호출
+
+
+# 4. 연결 리스트 생성
 for _ in range(m):
-    a, b = map(int, input().split())
-    A[a-1].append(b)
-    A[b-1].append(a)
+    a,b = map(int, input().split())
+    A[a-1].append(b-1) 
+    A[b-1].append(a-1) 
 
-count = 0
+count = 0 
 
-# 1번과 연결된 모든 노드 체크하고, 남은 노드가 있다면 COUNT 증가시키고 DFS 실행 
-for i in range(1, n + 1):
-    if not visited[i]:
-        count += 1
-        DFS(i)
-        
-print(count)
+for i in range(n):
+    if not visited[i] :
+        dfs(i) # dfs 호출
+        count += 1 # 연결 요소 개수 증가 = dfs 호출 횟수 증가
+
+print(count) # 연결 요소 개수 출력
+
