@@ -16,8 +16,8 @@ def DFS(v):
 # 인접리스트 생성
 for _ in range(m):
     a, b = map(int, input().split())
-    A[a].append(b)
-    A[b].append(a)
+    A[a-1].append(b)
+    A[b-1].append(a)
 
 count = 0
 
