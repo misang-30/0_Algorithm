@@ -1,7 +1,7 @@
 # Algorithm
-알고리즘 개념 및 코딩 테스트
-https://www.youtube.com/watch?v=lFtQnOhKnr0
-
+- 알고리즘 개념 및 코딩 테스트
+- https://www.youtube.com/watch?v=lFtQnOhKnr0
+- 일단, 개념 1회독 하고 문제풀이 반복하면서 외워라
 ## BFS
 - [SWEA D3] 1238번 - Contact
 - [프로그래머스 Lv.2] 게임 맵 최단거리
